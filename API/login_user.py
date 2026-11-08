@@ -18,3 +18,11 @@ class LoginUser(BaseFunction):
                             json=login_form
                         )
         return request
+    
+    @allure.step('выйти из системы')
+    def logout(self, endtoken):
+        register_form = {"token": "{{"+endtoken+"}}"}
+        request = requests.post(
+                API.LOGOUT_USER,
+                json=register_form
+            )

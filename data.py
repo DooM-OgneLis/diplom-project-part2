@@ -6,12 +6,23 @@ class API:
     AUTHORIZATION = URL.STELLARBURGERS+'api/auth/login'
     CREATE_ORDER = URL.STELLARBURGERS+'api/orders'
     INGREDIENTS = URL.STELLARBURGERS+'api/ingredients'
+    DELETE_USER = URL.STELLARBURGERS+'api/auth/user'
+    LOGOUT_USER = URL.STELLARBURGERS+'api/auth/logout'
 
 class Constant:
     PST_DOMAIN = ['ya.ru', 'yandex.ru', 'google.com', 'yahoo.com', 'mail.ru']
 
 #макеты возвращаемых ответов для проведения проверки соответствия
 class Request:
+    STATUS_CODE = {
+        'OK': 200,
+        'Created': 201,
+        'Bad Request': 400,
+        'Unauthorized': 401,
+        'Forbidden': 403,
+        'Internal Server Error': 500
+    }
+
     CREATE_USER = {
         'Created': {
             "success": True,

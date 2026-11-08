@@ -28,6 +28,7 @@ class CreateOrder(BaseFunction):
 
         return dict_data
 
+    @allure.step('создание заказа')
     def create_order(self, num_ingredients:int, session_token = None):
         dict_ingredients = {}
         list_ingredients = []
