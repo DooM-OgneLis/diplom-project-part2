@@ -1,4 +1,5 @@
 import pytest
+import allure
 import generator
 from API.create_user import CreateUser
 import API.delete_user as du
@@ -31,4 +32,8 @@ def delete_user():
         try:
             du.delete_user(token)
         except Exception as e:
-            print(f"[Cleanup] Ошибка удаления: {e}")
+            allure.attach(
+                body=f"Ошибка при удалении пользователя: {e!r}",
+                name="Ошибка очистки (teardown)",
+                attachment_type=allure.attachment_type.TEXT,
+            )
